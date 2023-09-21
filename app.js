@@ -17,6 +17,7 @@ const port=3000;
 app.set('view-engine','ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressFileUpload());
+app.use(express.static("public"));
 
 
 
@@ -29,13 +30,13 @@ console.log(__dirname);
 app.get("/",(req,res)=>{
     res.render("index.ejs");
 });
-const records=[];
+let records=[];
 app.post('/upload',async function(req, res) {
     console.log(req.files.foo); // the uploaded file object
     const file=req.files.foo;
 
     await file.mv(`${__dirname}/myFile.csv`);
-    
+    records=[];
     const inputStream = fs.createReadStream('myFile.csv', 'utf8');
     
     await inputStream

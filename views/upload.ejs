@@ -1,16 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<%- include("index.ejs") %>
     <h1>csv file uploaded</h1>
-    <h1><%= data %></h1>
-    <% data.forEach(element => { %>
-        <p> <%= element %> </p>
-    <%  }); %>
     
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+    <table>
+    <% for (let index = 0; index < data.length; index++) { %>
+      <%    const element = data[index]; %>
+      <% if (index==0) { %>
+        <tr>
+            <% for (let index = 0; index < element.length; index++) { %>
+               <% const x = element[index]; %>
+               <th> <%= x %></th>
+            <% } %>
+          </tr>
+      <% } else { %>
+        <tr>
+            <% for (let index = 0; index < element.length; index++) { %>
+               <% const x = element[index]; %>
+               <td> <%= x %></td>
+            <% } %>
+          </tr>
+      <% } %>
+        
+    <%  } %>
+
+    </table>
+    
+
+   <script src="/js/upload.js"></script> 
 </body>
 </html>
