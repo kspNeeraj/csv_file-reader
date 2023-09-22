@@ -1,24 +1,31 @@
-<%- include("index.ejs") %>
-    <h1>csv file uploaded</h1>
+<%- include("partials/header.ejs") %>
     
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-    <table>
+    <div class="comp">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+        <a href="/"><button>upload new</button></a>
+    </div>
+    
+    <table class="styled-table">
     <% for (let index = 0; index < data.length; index++) { %>
       <%    const element = data[index]; %>
       <% if (index==0) { %>
+        <thead>
         <tr>
             <% for (let index = 0; index < element.length; index++) { %>
                <% const x = element[index]; %>
                <th> <%= x %></th>
             <% } %>
           </tr>
+        </thead>
       <% } else { %>
-        <tr>
+        <tbody>
+        <tr class="active-row">
             <% for (let index = 0; index < element.length; index++) { %>
                <% const x = element[index]; %>
                <td> <%= x %></td>
             <% } %>
           </tr>
+          </tbody>
       <% } %>
         
     <%  } %>
@@ -26,6 +33,7 @@
     </table>
     
 
-   <script src="/js/upload.js"></script> 
-</body>
-</html>
+   
+
+    <script src="/js/upload.js"></script> 
+   <%- include("partials/footer.ejs") %>

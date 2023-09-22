@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/upload.css">
-</head>
-<body>
-    <h1>csv file reader</h1>
-    <form action="upload" enctype="multipart/form-data"  method="post">
-        <input type="file" name="foo" id="">
-        <input type="text" name="name" id="">
+<%- include("partials/header.ejs") %>
+    
+   
+<form action="upload" enctype="multipart/form-data" method="POST">
+    <input type="file" name="foo" id="">
+    <p>Drag your files here or click in this area.</p>
+    <button type="submit">Upload</button>
+  </form>
+       
         
-        <input type="submit" value="upload">
-    </form>
-    <a href="/getD"  > <button>show filw</button></a>
+    
+    
+
+
+
+<%- include("partials/footer.ejs") %>

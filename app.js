@@ -50,7 +50,7 @@ app.post('/upload',async function(req, res) {
         });
 
     console.log(records.length);
-    res.render("index.ejs");
+    res.render("show.ejs");
 
   });
 app.get("/getD",(req,res)=>{
