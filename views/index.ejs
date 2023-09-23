@@ -2,15 +2,17 @@
     
    
 <form action="upload" enctype="multipart/form-data" method="POST">
-    <input type="file" name="foo" id="">
-    <p>Drag your files here or click in this area.</p>
-    <button type="submit">Upload</button>
+    <input type="file" name="foo" onchange="getName()" id="myFileinput">
+    
+    <p id="file_des">Drag your files here or click in this area.</p>
+    <button id="upload" type="submit"  >Upload</button>
   </form>
+  
        
         
     
     
 
 
-
+  
 <%- include("partials/footer.ejs") %>
